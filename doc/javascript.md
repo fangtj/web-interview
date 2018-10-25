@@ -41,6 +41,8 @@ cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage�
 sessionStorage和localStorage的存储空间更大；
 sessionStorage和localStorage有更多丰富易用的接口；
 sessionStorage和localStorage各自独立的存储空间；
+sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；
+localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据
 ```
 4.javascript中==和===的区别
 ```
