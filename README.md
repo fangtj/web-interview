@@ -1,7 +1,7 @@
 # web-interview
 前端面试常见问题集锦
 
-##Javascript
+##[Javascript](./doc/javascript.md)
 
 1.前端安全,理解xss和csrf
 ```
