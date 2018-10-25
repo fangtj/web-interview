@@ -37,11 +37,10 @@ function quickSort(arr){
 ```
 3.cookie,sessionStorage和localStorage的区别
 ```
-共同点：都是保存在浏览器端，且同源的。
-区别：cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递。而sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下。存储大小限制也不同，cookie数据不能超过4k，同时因为每次http请求都会携带cookie，所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。数据有效期不同，
-sessionStorage：仅在当前浏览器窗口关闭前有效，自然也就不可能持久保持；
-localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；
-cookie只在设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭。作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localStorage 在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的。Web Storage 支持事件通知机制，可以将数据更新的通知发送给监听者。Web Storage 的 api 接口使用更方便
+cookie在浏览器和服务器间来回传递。 sessionStorage和localStorage不会
+sessionStorage和localStorage的存储空间更大；
+sessionStorage和localStorage有更多丰富易用的接口；
+sessionStorage和localStorage各自独立的存储空间；
 ```
 4.javascript中==和===的区别
 ```
@@ -94,4 +93,21 @@ d. 用闭包模拟私有方法
 7.面向对象过程的三大基本特征
 ```
 继承,多态,封装
+```
+8.如何判断一个变量是对象还是数组
+```
+prototype.toString.call(),这个方法兼容性最好,千万不要使用typeof,都会返回object
+```
+9.ES5和ES6中继承有啥区别
+```
+ES5的继承时通过prototype或构造函数机制来实现。ES5的继承实质上是先创建子类的实例对象，然后再将父类的方法添加到this上（Parent.apply(this)）。
+ES6的继承机制完全不同，实质上是先创建父类的实例对象this（所以必须先调用父类的super()方法），然后再用子类的构造函数修改this。
+具体的：ES6通过class关键字定义类，里面有构造方法，类之间通过extends关键字实现继承。子类必须在constructor方法中调用super方法，否则新建实例报错。因为子类没有自己的this对象，而是继承了父类的this对象，然后对其进行加工。如果不调用super方法，子类得不到this对象
+```
+10.垂直居中有哪些方法
+```
+单行文本的话可以使用height和line-height设置同一高度。
+position+margin：设置父元素:position: relative;，子元素height: 100px; position:absolute;top: 50%; margin: -50px 0 0 0;（定高）
+position+transform：设置父元素position:relative,子元素：position: absolute;top: 50%;transform: translate(0, -50%);（不定高）
+百搭flex布局(ie10+)，设置父元素display:flex;align-items: center;（不定高）
 ```

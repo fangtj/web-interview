@@ -16,3 +16,6 @@
 
 - [TypeScript](/doc/typescript.md)(后续更新)
 
+
+
+*如有错误欢迎提issues,如果有意愿一起整理可以加QQ:913906565,谢谢!祝各位面试顺利!
