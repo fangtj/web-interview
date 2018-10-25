@@ -5,7 +5,7 @@
 
 - [Vue](/doc/vue.md)
 
-- [Angular](/doc/angular.md)
+- [Angular](/doc/angular.md)(暂无后续更新)
 
-- [TypeScript](/doc/typescript.md)
+- [TypeScript](/doc/typescript.md)(后续更新)
 
