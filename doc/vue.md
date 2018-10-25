@@ -1,4 +1,5 @@
 #Vue
+
 1.Vue的MVVM
 ```
 MVVM全称是Model-View-ViewModel,Vue是以数据驱动的,一旦dom创建,数据更新dom也就跟着更新
@@ -21,7 +22,112 @@ prop  $emit
 它的生命周期中有多个事件钩子，让我们在控制整个Vue实例的过程时更容易形成好的逻辑。
 ```
 5.vue响应式原理
+```
+const Observer = function(data) {
+  for (let key in data) {
+    defineReactive(data, key);
+  }
+}
+ 
+const defineReactive = function(obj, key) {
+  const dep = new Dep();
+  let val = obj[key];
+  Object.defineProperty(obj, key, {
+    enumerable: true,
+    configurable: true,
+    get() {
+      console.log('in get');
+      dep.depend();
+      return val;
+    },
+    set(newVal) {
+      if (newVal === val) {
+        return;
+      }
+      val = newVal;
+      dep.notify();
+    }
+  });
+}
+ 
+const observe = function(data) {
+  return new Observer(data);
+}
+ 
+const Vue = function(options) {
+  const self = this;
+  if (options && typeof options.data === 'function') {
+    this._data = options.data.apply(this);
+  }
+ 
+  this.mount = function() {
+    new Watcher(self, self.render);
+  }
+ 
+  this.render = function() {
+    with(self) {
+      _data.text;
+    }
+  }
+ 
+  observe(this._data);  
+}
+ 
+const Watcher = function(vm, fn) {
+  const self = this;
+  this.vm = vm;
+  Dep.target = this;
+  
+  this.addDep = function(dep) {
+    dep.addSub(self);
+  }
+ 
+  this.update = function() {
+    console.log('in watcher update');
+    fn();
+  }
+ 
+  this.value = fn();
+  Dep.target = null;
+}
+ 
+const Dep = function() {
+  const self = this;
+  this.target = null;
+  this.subs = [];
+  this.depend = function() {
+    if (Dep.target) {
+      Dep.target.addDep(self);
+    }
+  }
+ 
+  this.addSub = function(watcher) {
+    self.subs.push(watcher);
+  }
+ 
+  this.notify = function() {
+    for (let i = 0; i < self.subs.length; i += 1) {
+      self.subs[i].update();
+    }
+  }
+}
+ 
+const vue = new Vue({
+  data() {
+    return {
+      text: 'hello world'
+    };
+  }
+})
+ 
+vue.mount(); // in get
+vue._data.text = '123'; // in watcher update /n in get
 
+1.vue将data初始化为一个Observer并对对象中的每个值，重写了其中的get、set，data中的每个key，都有一个独立的依赖收集器。
+2.在get中，向依赖收集器添加了监听
+3.在mount时，实例了一个Watcher，将收集器的目标指向了当前Watcher
+4.在data值发生变更时，触发set，触发了依赖收集器中的所有监听的更新，来触发Watcher.update
+```
 
 6.vuex几大属性
 ```
