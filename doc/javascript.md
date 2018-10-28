@@ -127,3 +127,5 @@ position+transform：设置父元素position:relative,子元素：position: abso
     4、使用new()方法构造出的对象是引用型
 ```
 12.队列
+
+13.原型
