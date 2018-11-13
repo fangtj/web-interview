@@ -8,7 +8,7 @@
 
 - [Javascript](./doc/javascript.md)
 
-- [Http](./doc/http.md)(后续更新)
+- [Http](./doc/http.md)
 
 - [Vue](/doc/vue.md)
 
