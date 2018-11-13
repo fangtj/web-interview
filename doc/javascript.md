@@ -192,5 +192,24 @@ javascript中万物皆对象
 
 11.访问者模式（Visitor）
 
-
+```
+15.前端如何对页面性能进行优化
+```
+1.减少http请求
+2.减少http请求大小
+3.将CSS或JavaScript放到外部文件中，避免使用<style>或者<script>标签直接引入（根据实际文件大小和业务场景来选择)
+4.避免页面空的href和src
+5.为HTML指定Cache-Control或Expires
+6.合理设置Etag和Last-Modified
+7.减少页面重定向
+8.使用静态资源分域存放来增加下载并行数
+9.使用静态资源CDN来存储文件
+10.使用CDN Combo下载传输内容
+11.使用可缓存的AJAX
+12.使用GET来完成AJAX请求
+13.减少Cookie的大小并进行Cookie隔离
+14.缩小favicon.ico并缓存
+15.推荐使用异步JavaScript资源
+16.消除阻塞渲染的CSS及JavaScript
+17.避免使用CSSimport引用加载CSS
 ```
