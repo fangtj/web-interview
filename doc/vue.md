@@ -157,3 +157,7 @@ vue._data.text = '123'; // in watcher update /n in get
 可重用性。你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。
 独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计，使用Expression Blend可以很容易设计界面并生成xml代码。
 ```
+11.vue常用指令
+```
+v-if v-show v-bind v-for v-model 
+```
