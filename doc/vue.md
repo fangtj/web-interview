@@ -159,5 +159,5 @@ vue._data.text = '123'; // in watcher update /n in get
 ```
 11.vue常用指令
 ```
-v-if v-show v-bind v-for v-model 
+v-if v-show v-bind(:) v-for v-model  v-text v-html v-on(@)
 ```
