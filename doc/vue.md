@@ -161,3 +161,7 @@ vue._data.text = '123'; // in watcher update /n in get
 ```
 v-if v-show v-bind(:) v-for v-model  v-text v-html v-on(@)
 ```
+12.MVVM
+```
+MVVM的设计思想：关注Model（数据）的变化，让MVVM框架去自动更新DOM的状态，比较主流的实现有：angular的（脏值检测）vue的（数据劫持->发布订阅模式）我们重点了解vue（数据劫持->发布订阅模式）的实现方式，让我们从操作DOM的繁琐操作中解脱出来
+```
